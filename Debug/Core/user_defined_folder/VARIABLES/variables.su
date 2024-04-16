@@ -1,0 +1,4 @@
+variables.cpp:10:1:variables::variables()	16	static
+variables.cpp:15:1:variables::~variables()	16	static
+variables.cpp:15:1:virtual variables::~variables()	16	static
+variables.cpp:20:1:SatelliteHealth::SatelliteHealth()	16	static

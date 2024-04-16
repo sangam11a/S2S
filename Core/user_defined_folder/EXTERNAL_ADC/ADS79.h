@@ -1,0 +1,86 @@
+/*
+ * ADS79.h
+ *
+ *  Created on: Apr 10, 2024
+ *      Author: sanga
+ */
+#pragma once
+
+#include "stdint.h"
+#include "stm32f4xx_hal.h"
+#include "../../Core/user_defined_folder/VARIABLES/variables.h"
+#include "math.h"
+
+#ifndef USER_DEFINED_FOLDER_EXTERNAL_ADC_ADS79_H_
+#define USER_DEFINED_FOLDER_EXTERNAL_ADC_ADS79_H_
+
+#define E_ADC hspi2
+//extern SPI_HandleTypeDef hspi2;
+
+
+//command codes definition for ADS7953SDBT analog to digital converter.
+
+/*commands to set the modes of the ADC*/
+#define 		MANUAL_MODE  			0b0001101011000000
+#define 		AUTO_1_MODE 			0b0010110000001111
+#define 		AUTO_2_MODE 			0b0011110000000000
+#define 		AUTO_2_MODE2 			0b0011100000000000
+
+/*commands to program the modes of the ADC*/
+#define			AUTO_1_PROGRAM			0b1000000000000000			//this makes the ADC to go into programming AUTO-1 mode.
+#define 		AUTO_1_SEQUENCE			0b0111111111111111			//this gives the sequence of the channels to be sampled.
+#define 		ADC_AUTO_2_PROGRAM			0b1001000111000000		//change the last channel number for FM. changed in EM for testing purposes.
+#define 		ADC1_AUTO_2_PROGRAM			0b1001001011000000
+
+/*command to keep operating in the same selected mode*/
+#define			CONTINUE_OPERATION 		0b0000000000000000
+
+/*commands for GPIO program register settings*/
+#define 		GPIO_PROGRAM			0b0100001
+
+//need to see the commands for the alarm.(to ask)
+
+#define ADC_CS_Pin GPIO_PIN_9
+
+extern uint8_t g[2];
+//extern uint8_t adc1_data[2];
+extern int i, j;
+//SPI_HandleTypeDef hspi2;
+
+class ADS79 {
+public :
+	typedef enum _operation_modes{
+		ADC_SELECT= 1,
+		ADC_READ = 2
+	} operation_modes;
+	const uint8_t E_ADC_DATA_LEN = 16;
+	uint8_t adc_data[2];
+	 uint16_t adc_channels[12];
+		  uint16_t adc1_channels[12];
+
+public:
+	ADS79();
+	virtual ~ADS79();
+	void SPI_Transmit_Receive(SPI_HandleTypeDef *SPI, uint8_t *command);
+
+	void SPI_Transmit_Receive(SPI_HandleTypeDef *SPI, uint8_t *command,uint8_t *adc_data);
+	void ADC_Enable();
+	void ADC1_Enable();
+	void ADC_Disable();
+	void ADC2_Disable();
+	void ADC_GPIO_Register();
+	void MANUAL_Select();
+	void AUTO_2_Select_ADC(operation_modes mode);
+	void AUTO_2_Select_ADC1(operation_modes mode);
+	void ADC_AUTO_2_Program();
+	void ADC1_AUTO_2_Program();
+	void Continue_Operaion(uint8_t *data);
+	void ADC_CombineData(uint16_t *adc_channels, uint16_t *adc1_channels);
+	void ADC_Conv_Data(float *adc_conv_buf, uint16_t *adc_buf);
+	void ADC1_Conv_Data(float *adc1_conv_buf, uint16_t *adc1_buf);
+	void ADC_Operate();//uint16_t *adc_channels, uint16_t *adc1_channels);
+	void ADC_Temp_Conv(float *adc1_conv_buf, float *temp_buf);
+	//uint16_t ADC_Receive(uint16_t *data)
+};
+
+#endif /* USER_DEFINED_FOLDER_EXTERNAL_ADC_ADS79_H_ */

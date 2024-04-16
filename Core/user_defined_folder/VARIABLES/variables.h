@@ -1,0 +1,162 @@
+/*
+ * variables.h
+ *
+ *  Created on: Apr 8, 2024
+ *      Author: sanga
+ */
+#pragma once
+
+//#include "iostream"
+#include "stdio.h"
+#include "string.h"
+#include "stdint.h"
+#include "stm32f4xx_hal.h"
+//#include "stm32f4xx"
+
+#ifndef SRC_VARIABLES_H_
+#define SRC_VARIABLES_H_
+
+#define DEBUG_MODE
+#define UART_DEBUG
+
+extern SPI_HandleTypeDef hspi2;
+extern SPI_HandleTypeDef hspi3;
+extern SPI_HandleTypeDef hspi4;
+extern SPI_HandleTypeDef hspi5;
+extern UART_HandleTypeDef huart1;
+extern UART_HandleTypeDef huart4;
+extern UART_HandleTypeDef huart5;
+extern UART_HandleTypeDef huart7;
+extern UART_HandleTypeDef huart8;
+
+#define EXT_ADC_FM_SPI hspi2
+#define MAIN_FM_SPI hspi3
+#define SHARED_FM_SPI hspi4
+#define IMU_SPI hspi5
+#define OBC_DEBUG huart8
+
+
+#define MAIN_FM_CS_PORT GPIOD
+#define MAIN_FM_CS_PIN GPIO_PIN_3
+#define SHARED_FM_CS_PORT GPIOI
+#define SHARED_FM_CS_PIN GPIO_PIN_6
+#define EXT_ADC_CS_PORT GPIOD
+#define EXT_ADC_CS_PIN GPIO_PIN_9
+#define IMU_CS_PORT GPIOH
+#define IMU_CS_PIN GPIO_PIN_10
+#define MAG_CS_PORT GPIOF
+#define MAG_CS_PIN GPIO_PIN_12
+#define MUX_CS_PORT GPIOg
+#define MUX_CS_PIN GPIO_PIN_6
+
+
+#define RESET_TIMER
+#define HK_TIMER
+#define HEADER
+#define FOOTER
+#define COM_ACK
+#define COM_CHECKSUM_PASS
+#define COM_CHECKSUM_FAIL
+#define PACKET_DATA_LEN
+
+#define SAT_ID
+#define WDG_REFRESH_INTERVAL 60
+
+#ifdef BAUDRATE_4800_BPS
+#define HK_INTERVAL 90
+#endif
+
+
+#define SOLAR_STATUS_DATA_LEN 20
+#define ANTENNA_DEPLOYMENT_TIME
+#define MSN_RUN_TIME 300000 //MSN run timeout in ms
+
+#define DATA_BUFFER_LEN 80
+#define SAT_HEALTH_LEN 40
+#define MSN_TX_BUFFER_LEN
+
+
+#define SECTOR_SIZE 65536
+#define ADDRESS_DATA_SIZE 8*4+4
+#define RSV_TABLE_SIZE 50 // max 10 reserve commands
+/*
+ * Defining a constant starting address block
+ */
+#define PAGE_GAP 256
+#define BLOCKS_PER_SECTOR 65535
+#define GAP_BETWEEN_TWO_BLOCKS 4
+#define SECTOR_ADDRESS_GAP 2046/6
+#define BLOCK_ADDRESS_INTERNAL_FLASH_HK_DATA 0x0800C000
+#define BLOCK_ADDRESS_INTERNAL_FLASH_RSV 0x0800C00A
+#define BLOCK_ADDRESS_INTERNAL_FLASH_COM 0x0800C01E
+#define BLOCK_ADDRESS_INTERNAL_FLASH_MSN1 0x0800C028
+#define BLOCK_ADDRESS_INTERNAL_FLASH_MSN2 0x0800C03C
+#define BLOCK_ADDRESS_INTERNAL_FLASH_MSN3 0x0800C046
+#define BLOCK_ADDRESS_INTERNAL_FLASH_MSN4 0x0800C050
+#define BLOCK_ADDRESS_INTERNAL_SAT_LOG 0x0800C064
+#define BLOCK_ADDRESS_INTERNAL_FLAG_DATA 0x0800C06e
+/*
+ *
+ */
+
+#define STARTING_BLOCK_EXTERNAL_FLASH_HK_DATA BLOCKS_PER_SECTOR*2
+#define STARTING_BLOCK_EXTERNAL_FLAG_DATA BLOCKS_PER_SECTOR*401
+#define STARTING_BLOCK_EXTERNAL_FLASH_SAT_LOG BLOCKS_PER_SECTOR*412
+#define STARTING_BLOCK_EXTERNAL_FLASH_RSV BLOCKS_PER_SECTOR*725
+#define STARTING_BLOCK_EXTERNAL_FLASH_COM BLOCKS_PER_SECTOR*735
+#define STARTING_BLOCK_EXTERNAL_FLASH_MSN1 BLOCKS_PER_SECTOR*831
+#define STARTING_BLOCK_EXTERNAL_FLASH_MSN2 BLOCKS_PER_SECTOR*991
+#define STARTING_BLOCK_EXTERNAL_FLASH_MSN3 BLOCKS_PER_SECTOR*1601
+#define STARTING_BLOCK_EXTERNAL_FLASH_MSN4 BLOCKS_PER_SECTOR*1801
+
+
+
+#define ENDING_BLOCK_EXTERNAL_FLASH_HK_DATA BLOCKS_PER_SECTOR*400
+#define ENDING_BLOCK_EXTERNAL_FLAG_DATA BLOCKS_PER_SECTOR*411
+#define ENDING_BLOCK_EXTERNAL_FLASH_SAT_LOG BLOCKS_PER_SECTOR*724
+#define ENDING_BLOCK_EXTERNAL_FLASH_RSV BLOCKS_PER_SECTOR*734
+#define ENDING_BLOCK_EXTERNAL_FLASH_COM BLOCKS_PER_SECTOR*830
+#define ENDING_BLOCK_EXTERNAL_FLASH_MSN1 BLOCKS_PER_SECTOR*990
+#define ENDING_BLOCK_EXTERNAL_FLASH_MSN2 BLOCKS_PER_SECTOR*1600
+#define ENDING_BLOCK_EXTERNAL_FLASH_MSN3 BLOCKS_PER_SECTOR*1800
+#define ENDING_BLOCK_EXTERNAL_FLASH_MSN4 BLOCKS_PER_SECTOR*2043
+/*
+ *
+ */
+
+
+
+class SatelliteHealth{
+public:
+	uint8_t HEAD, TIM_DAYS, TIM_HOUR, TIM_MINUTE, TIM_SECOND, ANT_DEPLOYED, OPERATION_MODE;
+	uint8_t BATTERY_VOLTAGE, BATTERY_TEMPERATURE, BATTERY_CURRENT;
+	int16_t ax, ay, az, gx, gy, gz, magx, magy, magz, altitude;
+	int16_t  solar_panel_y_current[2], solar_panel_z_current[2], rst_3v3_current ,raw_current, _3v3_1_current, _3v3_2_current , _5v_current, unreg1_current;
+	int16_t solar_panel_y_voltage[2], solar_panel_z_voltage[2];
+	int16_t Y_TEMP, Y1_TEMP, Z_TEMP, Z1_TEMP, BPB_TEMP, OBC_TEMP, COM_TEMP;
+	uint16_t OBC_ABNL_RST, RST_ABNL_RST, RST_TIME, CHK_SUM;
+public :
+	SatelliteHealth();
+	virtual ~SatelliteHealth();
+	void Read_IMU_data();
+
+
+
+};
+
+
+
+
+class variables {
+public :
+	uint32_t EXTERNAL_FLASH_ADDRESS;
+	uint8_t SAT_IMU[18];
+	uint16_t SFM[20];
+	uint16_t FM[20];
+	uint8_t MSN_FLAG, RSV_FLAG, MSN1_FLAG, MSN2_FLAG, MSN3_FLAG;
+public:
+	variables();
+	virtual ~variables();
+};
+
+#endif /* SRC_VARIABLES_H_ */

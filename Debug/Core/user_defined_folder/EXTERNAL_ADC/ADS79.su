@@ -1,0 +1,16 @@
+cmath:338:3:constexpr float std::log(float)	16	static
+ADS79.cpp:9:1:ADS79::ADS79()	16	static
+ADS79.cpp:14:1:ADS79::~ADS79()	16	static
+ADS79.cpp:14:1:virtual ADS79::~ADS79()	16	static
+ADS79.cpp:27:6:void ADS79::ADC_Enable()	16	static
+ADS79.cpp:39:6:void ADS79::ADC_Disable()	16	static
+ADS79.cpp:51:6:void ADS79::MANUAL_Select()	32	static
+ADS79.cpp:71:6:void ADS79::SPI_Transmit_Receive(SPI_HandleTypeDef*, uint8_t*, uint8_t*)	32	static
+ADS79.cpp:83:6:void ADS79::SPI_Transmit_Receive(SPI_HandleTypeDef*, uint8_t*)	24	static
+ADS79.cpp:99:6:void ADS79::AUTO_2_Select_ADC(ADS79::operation_modes)	24	static
+ADS79.cpp:140:6:void ADS79::ADC_AUTO_2_Program()	24	static
+ADS79.cpp:163:6:void ADS79::ADC_CombineData(uint16_t*, uint16_t*)	40	static
+ADS79.cpp:185:6:void ADS79::ADC_Conv_Data(float*, uint16_t*)	40	static
+ADS79.cpp:200:6:void ADS79::ADC1_Conv_Data(float*, uint16_t*)	48	static
+ADS79.cpp:239:6:void ADS79::ADC_Operate()	24	static
+ADS79.cpp:263:6:void ADS79::ADC_Temp_Conv(float*, float*)	48	static
