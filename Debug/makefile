@@ -11,6 +11,7 @@ RM := rm -rf
 -include sources.mk
 -include Drivers/STM32F4xx_HAL_Driver/Src/subdir.mk
 -include Core/user_defined_folder/VARIABLES/subdir.mk
+-include Core/user_defined_folder/MEMORY_ADDRESSING/subdir.mk
 -include Core/user_defined_folder/IMU/subdir.mk
 -include Core/user_defined_folder/FLASH_MEMORY/subdir.mk
 -include Core/user_defined_folder/EXTERNAL_ADC/subdir.mk

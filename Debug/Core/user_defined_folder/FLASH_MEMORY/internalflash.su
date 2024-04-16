@@ -1,0 +1,7 @@
+internalflash.cpp:10:1:internal_flash::internal_flash()	16	static
+internalflash.cpp:16:1:internal_flash::~internal_flash()	16	static
+internalflash.cpp:16:1:virtual internal_flash::~internal_flash()	16	static
+internalflash.cpp:20:10:uint32_t internal_flash::GetSector(uint32_t)	24	static
+internalflash.cpp:95:19:HAL_StatusTypeDef internal_flash::WRITE_TO_INTERNAL_FLASH(uint32_t, uint32_t, uint32_t*, uint8_t)	56	dynamic
+internalflash.cpp:127:6:void internal_flash::READ_FRM_INTERNAL_FLASH(uint32_t, uint8_t*, uint32_t)	32	static
+internalflash.cpp:140:6:void internal_flash::ERASE_INTERNAL_FLASH(uint32_t)	16	static

@@ -131,6 +131,7 @@ typedef enum{
 }SPI_OPERATIONS;
 uint8_t data[20];
 
+
 public:
 	mt25ql();
 	void CS_LOW(GPIO_TypeDef *GPIO_PORT, uint16_t GPIO_PIN);

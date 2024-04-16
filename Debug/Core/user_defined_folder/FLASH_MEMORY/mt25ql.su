@@ -1,15 +1,15 @@
 mt25ql.cpp:10:1:mt25ql::mt25ql()	16	static
-mt25ql.cpp:15:1:mt25ql::~mt25ql()	16	static
-mt25ql.cpp:15:1:virtual mt25ql::~mt25ql()	16	static
-mt25ql.cpp:28:6:void mt25ql::Read_ID(SPI_HandleTypeDef*)	24	static
-mt25ql.cpp:60:6:void mt25ql::ADDRESSING_MODE(SPI_HandleTypeDef*, uint8_t)	24	static
-mt25ql.cpp:65:6:void mt25ql::CS_LOW(GPIO_TypeDef*, uint16_t)	24	static
-mt25ql.cpp:69:6:void mt25ql::CS_HIGH(GPIO_TypeDef*, uint16_t)	24	static
-mt25ql.cpp:73:6:void mt25ql::SPI_Operation(SPI_HandleTypeDef*, uint8_t, uint32_t, GPIO_TypeDef*, uint16_t, mt25ql::SPI_OPERATIONS, uint8_t*, uint8_t)	48	dynamic
-mt25ql.cpp:104:6:void mt25ql::Bulk_Read(SPI_HandleTypeDef*, uint32_t, uint8_t*, uint16_t)	56	static
-mt25ql.cpp:125:6:void mt25ql::Page_Write(SPI_HandleTypeDef*, uint32_t, uint8_t*, uint8_t, uint16_t)	64	static
-mt25ql.cpp:155:6:void mt25ql::Bulk_Read_4B(SPI_HandleTypeDef*, uint32_t, uint8_t*, uint16_t)	32	static
-mt25ql.cpp:171:9:uint8_t mt25ql::Read_Byte_4B(SPI_HandleTypeDef*, uint32_t)	56	static
-mt25ql.cpp:177:6:void mt25ql::FM_Enable(SPI_HandleTypeDef*)	16	static
-mt25ql.cpp:187:6:void mt25ql::FM_Disable(SPI_HandleTypeDef*)	16	static
-mt25ql.cpp:197:6:void mt25ql::Write_Enable(SPI_HandleTypeDef*)	24	static
+mt25ql.cpp:16:1:mt25ql::~mt25ql()	16	static
+mt25ql.cpp:16:1:virtual mt25ql::~mt25ql()	16	static
+mt25ql.cpp:29:6:void mt25ql::Read_ID(SPI_HandleTypeDef*)	24	static
+mt25ql.cpp:61:6:void mt25ql::ADDRESSING_MODE(SPI_HandleTypeDef*, uint8_t)	24	static
+mt25ql.cpp:66:6:void mt25ql::CS_LOW(GPIO_TypeDef*, uint16_t)	24	static
+mt25ql.cpp:70:6:void mt25ql::CS_HIGH(GPIO_TypeDef*, uint16_t)	24	static
+mt25ql.cpp:74:6:void mt25ql::SPI_Operation(SPI_HandleTypeDef*, uint8_t, uint32_t, GPIO_TypeDef*, uint16_t, mt25ql::SPI_OPERATIONS, uint8_t*, uint8_t)	48	dynamic
+mt25ql.cpp:105:6:void mt25ql::Bulk_Read(SPI_HandleTypeDef*, uint32_t, uint8_t*, uint16_t)	56	static
+mt25ql.cpp:126:6:void mt25ql::Page_Write(SPI_HandleTypeDef*, uint32_t, uint8_t*, uint8_t, uint16_t)	64	static
+mt25ql.cpp:156:6:void mt25ql::Bulk_Read_4B(SPI_HandleTypeDef*, uint32_t, uint8_t*, uint16_t)	32	static
+mt25ql.cpp:172:9:uint8_t mt25ql::Read_Byte_4B(SPI_HandleTypeDef*, uint32_t)	56	static
+mt25ql.cpp:178:6:void mt25ql::FM_Enable(SPI_HandleTypeDef*)	16	static
+mt25ql.cpp:188:6:void mt25ql::FM_Disable(SPI_HandleTypeDef*)	16	static
+mt25ql.cpp:198:6:void mt25ql::Write_Enable(SPI_HandleTypeDef*)	24	static

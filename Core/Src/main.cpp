@@ -30,7 +30,7 @@
 //#include "../../Core/user_defined_folder/FLASH_MEMORY/mt25ql.h"
 //#include "../../Core/user_defined_folder/IMU/IMU.h"
 #include "../../Core/user_defined_folder/EXTERNAL_ADC/ADS79.h"
-
+#include "../../Core/user_defined_folder/MEMORY_ADDRESSING/MEMORYADDRESSING.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -57,6 +57,8 @@
 
 
  uint8_t pData[] = "OBC working";
+
+ MEMORY_ADDRESSING memory;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -86,6 +88,10 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
+
+
+  memory.get_current_address(&hspi3,0);
+
 
   /* USER CODE END Init */
 

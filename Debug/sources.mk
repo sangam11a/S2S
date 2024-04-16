@@ -35,6 +35,7 @@ Core/Startup \
 Core/user_defined_folder/EXTERNAL_ADC \
 Core/user_defined_folder/FLASH_MEMORY \
 Core/user_defined_folder/IMU \
+Core/user_defined_folder/MEMORY_ADDRESSING \
 Core/user_defined_folder/VARIABLES \
 Drivers/STM32F4xx_HAL_Driver/Src \
 

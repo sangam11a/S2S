@@ -1,4 +1,6 @@
-Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
+Core/user_defined_folder/FLASH_MEMORY/internalflash_test.o: \
+ ../Core/user_defined_folder/FLASH_MEMORY/internalflash_test.cpp \
+ ../Core/user_defined_folder/FLASH_MEMORY/internalflash.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Core/Inc/stm32f4xx_hal_conf.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
@@ -29,16 +31,9 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
- ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
- ../Core/Inc/i2c.h ../Core/Inc/main.h ../Core/Inc/spi.h ../Core/Inc/tim.h \
- ../Core/Inc/usart.h ../Core/Inc/gpio.h \
- ../Core/Src/../../Core/user_defined_folder/EXTERNAL_ADC/ADS79.h \
- ../Core/Inc/../../Core/user_defined_folder/VARIABLES/variables.h \
- ../Core/Src/../../Core/user_defined_folder/MEMORY_ADDRESSING/MEMORYADDRESSING.h \
- ../Core/Src/../../Core/user_defined_folder/MEMORY_ADDRESSING/../FLASH_MEMORY/internalflash.h \
- ../Core/Src/../../Core/user_defined_folder/MEMORY_ADDRESSING/../FLASH_MEMORY/mt25ql.h
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
 
-../Core/Inc/main.h:
+../Core/user_defined_folder/FLASH_MEMORY/internalflash.h:
 
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 
@@ -101,25 +96,3 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:
 
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
-
-../Core/Inc/i2c.h:
-
-../Core/Inc/main.h:
-
-../Core/Inc/spi.h:
-
-../Core/Inc/tim.h:
-
-../Core/Inc/usart.h:
-
-../Core/Inc/gpio.h:
-
-../Core/Src/../../Core/user_defined_folder/EXTERNAL_ADC/ADS79.h:
-
-../Core/Inc/../../Core/user_defined_folder/VARIABLES/variables.h:
-
-../Core/Src/../../Core/user_defined_folder/MEMORY_ADDRESSING/MEMORYADDRESSING.h:
-
-../Core/Src/../../Core/user_defined_folder/MEMORY_ADDRESSING/../FLASH_MEMORY/internalflash.h:
-
-../Core/Src/../../Core/user_defined_folder/MEMORY_ADDRESSING/../FLASH_MEMORY/mt25ql.h:
